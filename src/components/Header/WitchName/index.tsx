@@ -15,7 +15,7 @@ export function WitchName({name, isVisible}: Props) {
 
   if (isVisible) {
     return (
-      <button className='flex items-center' onClick={signOut}>
+      <button className='flex items-center' onClick={signOut} title="Sair">
         <div className="text-white font-bold text-sm mr-3">{name}</div>
         <FaSignOutAlt color='#FFFFFF' />
       </button>
