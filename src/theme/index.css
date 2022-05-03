@@ -10,6 +10,10 @@ body {
   box-shadow: 0 0 0.7em #6C63FF;
 }
 
+.box-shadow-lg {
+  box-shadow: 0 0 1.5em #6C63FF;
+}
+
 .ellipses {
   overflow: hidden;
   white-space: nowrap;
