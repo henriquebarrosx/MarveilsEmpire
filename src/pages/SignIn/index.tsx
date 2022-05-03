@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Header } from "@components/Header";
 
-export function SignIn() {
-  const [witchName, setWitchName] = useState('');
+export function SignIn(): JSX.Element {
+  const navigate = useNavigate();
+  const [witchName, setWitchName] = useState<string>('');
 
-  function onWitchNameChange(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void {
+  function onWitchNameChange(event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void {
     setWitchName(event.target.value)
   }
 
-  async function signIn(): Promise<void> {}
+  async function signIn(): Promise<void> {
+    navigate('/spells');
+  }
 
   return (
     <div className="relative">
@@ -16,7 +21,7 @@ export function SignIn() {
 
       <main className="flex items-center justify-center h-screen">
         <div className="px-16 py-10 bg-[#242424] shadow-lg shadow-[#6C63FF] rounded-lg mx-[512px] self-center flex-col border-2 border-solid border-[#6C63FF]">
-          <h1 className="text-white font-bold text-2xl text-center mb-7">
+          <h1 className="text-white font-bold text-2xl text-center mb-7 capitalize">
             Realizar login
           </h1>
 
