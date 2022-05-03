@@ -1,8 +1,8 @@
 export interface SpellSchema {
   id: string;
   name: string;
-  type: string;
   version: string;
+  type: SpellTypes;
   createdAt: string;
 }
 
@@ -12,5 +12,4 @@ export type SpellTypes =
   | 'debuff' 
   | 'defensive' 
   | 'mobility' 
-  | 'lost'
-  | string;
+  | 'lost';
