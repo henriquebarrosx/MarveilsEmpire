@@ -1,11 +1,11 @@
-import { SpellSchema } from 'types/Spell';
+import { SessionSchema } from '@interfaces/session';
 
-export class Spell {
+export class Session {
   async create(): Promise<void> {
 
   }
 
-  async get(): Promise<SpellSchema | undefined> {
+  async get(): Promise<SessionSchema | undefined> {
     return;
   }
 
