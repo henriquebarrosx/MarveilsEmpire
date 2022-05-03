@@ -1,6 +1,5 @@
-import { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useState, ChangeEvent } from "react";
 import { Header } from "@components/Header";
 
 export function SignIn(): JSX.Element {
@@ -30,7 +29,7 @@ export function SignIn(): JSX.Element {
             value={witchName}
             onChange={onWitchNameChange}
             placeholder="Nome de Feiticeiro"
-            className="w-full rounded-lg h-12 bg-[#202024] px-4 caret-white text-white placeholder:text-[#929293] placeholder:uppercase text-sm capitalize focus:outline-none focus:border-[#6C63FF] focus:border-solid focus:border-[1px]"
+            className="w-full rounded-md h-12 bg-[#202024] px-4 caret-white text-white placeholder:text-[#929293] placeholder:uppercase text-sm capitalize focus:outline-none focus:border-[#6C63FF] focus:border-solid focus:border-[1px]"
           />
 
           <div className="mt-6 mb-7">
