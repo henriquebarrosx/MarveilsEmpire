@@ -8,12 +8,13 @@ export default defineConfig({
     alias: [
       { find: '@services', replacement: '/src/services/' },
       { find: '@entities', replacement: '/src/entities/' },
-      { find: '@types', replacement: '/src/types/' },
+      { find: '@interfaces', replacement: '/src/interfaces/' },
       { find: '@store', replacement: '/src/store/' },
       { find: '@components', replacement: '/src/components/' },
       { find: '@pages', replacement: '/src/pages/' },
       { find: '@routes', replacement: '/src/routes/' },
       { find: '@assets', replacement: '/src/assets/' },
+      { find: '@utils', replacement: '/src/utils/' },
     ],
   }
 })

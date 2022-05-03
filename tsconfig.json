@@ -19,12 +19,13 @@
     "paths": {
       "@services/*": ["./src/services/*"],
       "@entities/*": ["./src/entities/*"],
-      "@types/*": ["./src/types/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@store/*": ["./src/store/*"],
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
       "@routes/*": ["./src/routes/*"],
       "@assets/*": ["./src/assets/*"],
+      "@utils/*": ["./src/utils/*"],
     }
   },
   "include": ["src"],
