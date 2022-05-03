@@ -3,21 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
-import { spellTypes } from '@utils/spell';
+import { spellDescription } from '@utils/spell';
 import { SpellSchema } from '@interfaces/spell';
 import { SpellTypeIconBox } from '@components/SpellTypeIconBox';
 
-function SpellComponent({ id, name, type }: SpellSchema): JSX.Element {
+function SpellComponent({ id, name, type, createdAt }: SpellSchema): JSX.Element {
   const navigate = useNavigate();
   const formattedSpellName = `"${name}"`
 
   function getSpellTypeText(): string {
-    const foundSpellType = spellTypes.find((spell) => spell.type === 'type');
+    const foundSpellType = spellDescription.find((spell) => spell.type === type);
     return foundSpellType?.label ?? getLostSpell();
   }
 
   function getLostSpell(): string {
-    return spellTypes.find((spell) => spell.type === 'lost')?.label!;
+    return spellDescription.find((spell) => spell.type === 'lost')?.label!;
   }
 
   function redirectToDetailsPage(): void {
