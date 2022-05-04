@@ -25,11 +25,11 @@ function SpellComponent({ id, name, type, createdAt }: SpellSchema): JSX.Element
   }
 
   return (
-    <button key={id} onClick={redirectToDetailsPage} title="Visualizar detalhes da magia" className='flex w-[348px] px-3 h-[104px] mx-5 my-5 bg-[#242424] box-shadow-md shadow-[#6C63FF] rounded-md justify-between items-center cursor-pointer hover:opacity-50 duration-200 ease-linear'>
-      <div className='flex items-center'>
+    <div onClick={redirectToDetailsPage} title="Visualizar detalhes da magia" className='flex w-[348px] px-3 h-[104px] mx-5 my-5 bg-[#242424] box-shadow-md shadow-[#6C63FF] rounded-md justify-between items-center cursor-pointer hover:opacity-50 duration-200 ease-linear'>
+      <div className='flex items-center w-[90%]'>
         <SpellTypeIconBox type={type} />
 
-        <div className='flex flex-col items-start ml-4 mx-w-[93%] w-[70%] text-left'>
+        <div className='flex flex-col items-start ml-4 w-[65%] text-left'>
           <h2 className='font-bold text-white text-sm uppercase ellipses w-full'>
             {formattedSpellName}
           </h2>
@@ -49,7 +49,7 @@ function SpellComponent({ id, name, type, createdAt }: SpellSchema): JSX.Element
           <MdKeyboardArrowRight size={21} color={'#FFFFFF'} />
         </button>
       </div>
-    </button>
+    </div>
   )
 }
 
