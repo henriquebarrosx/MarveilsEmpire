@@ -8,7 +8,7 @@ interface Props {
 export function ListViewContent({ spells }: Props): JSX.Element {
   return (
     <div className='flex flex-wrap justify-center'>
-      {spells.map((spell) => <Spell {...spell} />)}
+      {spells.map((spell) => <Spell {...spell} key={spell.id} />)}
     </div>
   )
 }
