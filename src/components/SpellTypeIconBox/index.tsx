@@ -1,7 +1,14 @@
+import { memo } from 'react';
 import { IconType } from 'react-icons';
 import { IoMdFlash } from 'react-icons/io';
 import { AiFillHeart } from 'react-icons/ai';
-import { MdOutlineWhatshot, MdSecurity, MdOutlineDirectionsRun, MdOutlineHelp } from 'react-icons/md';
+
+import {
+  MdSecurity,
+  MdOutlineHelp,
+  MdOutlineWhatshot,
+  MdOutlineDirectionsRun,
+} from 'react-icons/md';
 
 import { SpellTypes } from '@interfaces/spell';
 
@@ -9,7 +16,7 @@ interface Props {
   type: SpellTypes;
 }
 
-export function SpellTypeIconBox({ type }: Props): JSX.Element {
+function SpellTypeIconBoxComponent({ type }: Props): JSX.Element {
   function getIconBox(): IconBox {
     const foundIcon: IconBox | undefined = iconsBox.find((iconBox) => {
       return iconBox.type === type;
@@ -22,11 +29,11 @@ export function SpellTypeIconBox({ type }: Props): JSX.Element {
     return iconsBox.find((iconBox) => iconBox.type === 'lost')!;
   }
 
-  const RenderedIcon = getIconBox().icon;
+  const RenderedIcon: IconType = getIconBox().icon;
   const backgroundColor: string = getIconBox().background;
 
   return (
-    <div className={'rounded-lg min-w-[64px] min-h-[64px]  w-14 h-14 flex justify-center items-center'} style={{ backgroundColor }}>
+    <div style={{ backgroundColor }} className={'rounded-lg min-w-[64px] min-h-[64px]  w-14 h-14 flex justify-center items-center'}>
       <RenderedIcon size={36} color={getIconBox().color} />
     </div>
   )
@@ -76,3 +83,5 @@ const iconsBox = [
     background: '#B0A4FF',
   }
 ]
+
+export const SpellTypeIconBox = memo(SpellTypeIconBoxComponent)
