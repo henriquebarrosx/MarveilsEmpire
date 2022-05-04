@@ -1,10 +1,11 @@
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
   isVisible: boolean;
 }
 
-export function SpellsNotFound({ isVisible }: Props): JSX.Element | null {
+function SpellsNotFoundComponent({ isVisible }: Props): JSX.Element | null {
   const navigate = useNavigate();
 
   function moveToSpellCreation(): void {
@@ -38,3 +39,5 @@ export function SpellsNotFound({ isVisible }: Props): JSX.Element | null {
 
   return null;
 }
+
+export const SpellsNotFound = memo(SpellsNotFoundComponent);

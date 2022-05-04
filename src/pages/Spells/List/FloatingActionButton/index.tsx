@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { HiPlus } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 
-export function FloatingActionButton(): JSX.Element {
+function FloatingActionButtonComponent(): JSX.Element {
   const navigate = useNavigate();
   
   function navigateToSpellCreation(): void {
@@ -18,3 +19,5 @@ export function FloatingActionButton(): JSX.Element {
     </button>
   )
 }
+
+export const FloatingActionButton = memo(FloatingActionButtonComponent)
