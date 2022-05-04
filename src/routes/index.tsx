@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { App } from '../App';
 import { SignIn } from '@pages/SignIn';
+import { NotFound } from '@pages/NotFound';
 import { SpellList } from '@pages/Spells/List';
 import { SpellDetails } from '@pages/Spells/Details';
 import { SpellCreation } from '@pages/Spells/Creation';
@@ -11,6 +12,7 @@ export function Router(): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route index element={<App />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="signIn" element={<SignIn />} />
         <Route path="spells" element={<SpellList />} />
         <Route path="spells/new" element={<SpellCreation />} />
