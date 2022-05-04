@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Header } from "@components/Header";
+import { HeaderSide } from "@components/Header";
 import { SpellSchema } from '@interfaces/spell';
 import { fetchBySpells } from "@services/network/fetchSpells";
 
@@ -41,7 +41,7 @@ export function SpellList(): JSX.Element {
 
   return (
     <div className="flex flex-col relative h-screen">
-      <Header />
+      <HeaderSide />
       
       <ListView
         spells={spells}
