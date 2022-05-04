@@ -27,12 +27,12 @@ export function RightSide({ spellName, creationTime, spellType }: Props): JSX.El
   }
 
   return (
-    <div className="w-1/2 pl-8 flex flex-col justify-center">
-      <h1 className="text-white font-bold text-3xl uppercase">
+    <div className="md:w-1/2 w-full md:pl-8 flex flex-col justify-center sm:mt-6 max-w-[320px] md:max-w-[unset] self-center">
+      <h1 className="text-white font-bold text-3xl uppercase text-center md:text-left">
         Sobre a magia
       </h1>
 
-      <div className="flex flex-col max-w-[90%] mt-10 mb-7">
+      <div className="flex flex-col md:max-w-[90%] w-full  mt-10 mb-7">
         <label className="uppercase text-[#929293] text-xs mb-4">
           Nome da magia:
         </label>
@@ -42,7 +42,7 @@ export function RightSide({ spellName, creationTime, spellType }: Props): JSX.El
         </div>
       </div>
 
-      <div className="w-3/4 flex flex-col gap-2">
+      <div className="md:w-3/4 w-full flex flex-col gap-2">
         <span className="uppercase text-[#929293] text-xs leading-4">
           Criado em: {getFormattedDate()}
         </span>
