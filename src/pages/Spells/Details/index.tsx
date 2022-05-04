@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { SpellType } from "./LeftSide";
+import { LeftSide } from "./LeftSide";
 import { RightSide } from "./RightSide";
+import { SubmitButton } from "@components/SubmitButton";
 
-import { Header } from "@components/Header";
+import { HeaderSide } from "@components/Header";
 import { SpellSchema, SpellTypes } from "@interfaces/spell";
-import { SpellContextProvider, useSpell } from "@store/SpellCreation";
+import { SpellContextProvider, useSpell } from "@store/Spell";
 import { fetchSpellDetails } from "@services/network/fetchSpellDetails";
 
 function SpellDetailsComponent(): JSX.Element {
@@ -47,13 +48,13 @@ function SpellDetailsComponent(): JSX.Element {
   }, [spellId]);
 
   return (
-    <div className="flex flex-col relative h-screen">
-      <Header />
+    <div className="flex flex-col relative">
+      <HeaderSide />
 
-      <div className="flex justify-center items-center h-full">
-        <div className="flex flex-col bg-[#242424] box-shadow-lg w-[871px] h-[491px] rounded-lg p-14">
-          <div className="flex">
-            <SpellType />
+      <div className="flex justify-center items-center h-full mt-24 mb-24 md:mt-[10%] lg:mt-[150px] md:mb-0">
+        <div className="flex flex-col md:px-14 md:py-24 px-8 py-8 bg-[#242424] box-shadow-lg md:max-w-[871px] w-[90%] sm:max-h-[unset] rounded-lg">
+          <div className="flex md:flex-row flex-col-reverse">
+            <LeftSide />
 
             <RightSide
               spellType={spell?.type!}
@@ -62,11 +63,11 @@ function SpellDetailsComponent(): JSX.Element {
             />
           </div>
 
-          <div className="self-center mt-16">
-            <button onClick={redirectToPreviousPage} title="Voltar" className="w-[300px] uppercase bg-[#6C63FF] h-12 text-sm text-white font-bold rounded-lg hover:bg-[#403A9E] duration-200 ease-linear disabled:opacity-30 disabled:bg-[#6C63FF] disabled:cursor-not-allowed">
-              Voltar
-            </button>
-          </div>
+          <SubmitButton
+            label="Voltar"
+            onSubmit={redirectToPreviousPage}
+            tooltipMessage="Voltar para página de magias"
+          />
         </div>
       </div>
     </div>
