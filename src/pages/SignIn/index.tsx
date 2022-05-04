@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { useState, ChangeEvent } from "react";
-import { Header } from "@components/Header";
+import { useNavigate } from "react-router-dom";
+import { HeaderSide } from "@components/Header";
 
 export function SignIn(): JSX.Element {
   const navigate = useNavigate();
@@ -16,10 +16,10 @@ export function SignIn(): JSX.Element {
 
   return (
     <div className="relative">
-      <Header />
+      <HeaderSide />
 
       <main className="flex items-center justify-center h-screen">
-        <div className="px-16 py-10 bg-[#242424] shadow-lg shadow-[#6C63FF] rounded-lg mx-[512px] self-center flex-col border-2 border-solid border-[#6C63FF]">
+        <div className="px-8 md:px-16 py-10 w-[90%] bg-[#242424] shadow-lg shadow-[#6C63FF] rounded-lg max-w-[460px] self-center flex-col border-2 border-solid border-[#6C63FF]">
           <h1 className="text-white font-bold text-2xl text-center mb-7 capitalize">
             Realizar login
           </h1>
