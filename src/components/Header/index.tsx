@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { WitchName } from "./WitchName";
 import WitchHatImage from '@assets/images/witchHat.png'
 
-export function Header() {
+export function HeaderSide() {
   const navigate = useNavigate();
 
   const isAuthenticated = true;
   const witchName = "Charlotte";
 
-  function redirectToHomeScreen() {
+  function redirectToHomeScreen(): void {
     const redirectPath = isAuthenticated ? '/spells' : '/signIn';
     navigate(redirectPath);
   }
