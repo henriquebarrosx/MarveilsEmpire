@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +7,7 @@ interface Props {
   isVisible: boolean;
 }
 
-export function WitchName({name, isVisible}: Props) {
+function WitchNameComponent({name, isVisible}: Props) {
   const navigate = useNavigate();
 
   function signOut(): void {
@@ -24,3 +25,5 @@ export function WitchName({name, isVisible}: Props) {
 
   return null;
 }
+
+export const WitchName = memo(WitchNameComponent)
