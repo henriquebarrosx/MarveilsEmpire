@@ -1,5 +1,5 @@
 import { SpellTypes } from "@interfaces/spell";
-import { useSpell } from "@store/SpellCreation";
+import { useSpell } from "@store/Spell";
 import { SpellTypeIconBox } from "@components/SpellTypeIconBox";
 
 interface Props {
