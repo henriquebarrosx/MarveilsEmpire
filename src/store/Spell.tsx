@@ -11,8 +11,10 @@ interface Schema {
   isFetchIndicatorVisible: boolean;
   getSpellList: () => Promise<void>;
   isUpdateSpellModalVisible: boolean;
+  isRemoveSpellModalVisible: boolean;
   selectedOption: SpellTypes | undefined;
   shouldDisplayFetchIndicator: Dispatch<SetStateAction<boolean>>;
+  shouldDisplayRemoveSpellModal: Dispatch<SetStateAction<boolean>>;
   shouldDisplayUpdateSpellModal: Dispatch<SetStateAction<boolean>>;
   setSelectedSpell: Dispatch<SetStateAction<SpellSchema | undefined>>;
   setSelectedOption: Dispatch<SetStateAction<SpellTypes | undefined>>;
@@ -26,6 +28,7 @@ export function SpellContextProvider({ children }: WithChildren): JSX.Element {
   const [isFetchIndicatorVisible, shouldDisplayFetchIndicator] = useState(true);
   const [selectedOption, setSelectedOption] = useState<SpellTypes | undefined>();
   const [isUpdateSpellModalVisible, shouldDisplayUpdateSpellModal] = useState(false);
+  const [isRemoveSpellModalVisible, shouldDisplayRemoveSpellModal] = useState(false);
 
   async function getSpellList(): Promise<void> {
     try {
@@ -56,8 +59,10 @@ export function SpellContextProvider({ children }: WithChildren): JSX.Element {
         setSelectedSpell,
         setSelectedOption,
         isFetchIndicatorVisible,
+        isRemoveSpellModalVisible,
         isUpdateSpellModalVisible,
         shouldDisplayFetchIndicator,
+        shouldDisplayRemoveSpellModal,
         shouldDisplayUpdateSpellModal,
       }}>
       {children}

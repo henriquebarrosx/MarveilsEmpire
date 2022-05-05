@@ -14,7 +14,7 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
   const { id, name, type } = spell;
 
   const containerAreaRef = useRef(null);
-  const { setSelectedSpell, shouldDisplayUpdateSpellModal } = useSpell();
+  const { setSelectedSpell, shouldDisplayUpdateSpellModal, shouldDisplayRemoveSpellModal } = useSpell();
 
   useOutsideClickListener(containerAreaRef, hidePopover);
 
@@ -50,6 +50,12 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
     hidePopover();
   }
 
+  function removeCurrentSpell(): void {
+    shouldDisplayRemoveSpellModal(true);
+    setSelectedSpell(spell);
+    hidePopover();
+  }
+
   function getPopoverActions(): IAction[] {
     return [
       {
@@ -59,7 +65,7 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
       },
       {
         label: 'Remover',
-        onClick: () => { },
+        onClick: removeCurrentSpell,
         toolTipMessage: 'Remover Magia',
       },
     ]
