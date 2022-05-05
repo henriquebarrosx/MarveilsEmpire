@@ -1,3 +1,4 @@
+import { IconType } from 'react-icons';
 import { IoMdFlash } from 'react-icons/io';
 import { AiFillHeart } from 'react-icons/ai';
 

@@ -6,7 +6,7 @@ import { Session } from '../../../entities/session';
 
 interface Props {
   isVisible: boolean;
-  name: string | undefined;
+  name: string | null;
 }
 
 function WitchNameComponent({name, isVisible}: Props) {
