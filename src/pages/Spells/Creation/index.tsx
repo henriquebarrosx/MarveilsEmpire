@@ -1,8 +1,10 @@
-import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { LeftSide } from "./LeftSide";
 import { RightSide } from "./RightSide";
+
+import { useAuthentication } from "@utils/useAuth";
 import { HeaderSide } from "@components/Header";
 import { SubmitButton } from "@components/SubmitButton";
 import { createSpell } from "@services/network/spell/create";
@@ -10,6 +12,7 @@ import { SpellContextProvider, useSpell } from "@store/Spell";
 import { LoadingIndicator } from "@components/LoadingIndicator";
 
 function SpellCreationComponent(): JSX.Element {
+  useAuthentication();
   const navigate = useNavigate();
   const { selectedOption } = useSpell();
 

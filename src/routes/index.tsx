@@ -11,7 +11,7 @@ export function Router(): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route path="*" element={<App />} />
-        <Route path="signIn" element={<SignIn />} />
+        <Route path="/signIn" element={<SignIn />} />
         <Route path="spells" element={<SpellList />} />
         <Route path="spells/new" element={<SpellCreation />} />
         <Route path="spells/:id" element={<SpellDetails />} />

@@ -1,13 +1,14 @@
 import { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useSession } from "@store/Session";
 import { HeaderSide } from "@components/Header";
+import { Session } from "../../entities/session";
+import { useAuthentication } from "@utils/useAuth";
 import { validateWithName } from "@utils/witchNameValidations";
 
 export function SignIn(): JSX.Element {
+  useAuthentication();
   const navigate = useNavigate();
-  const { setWitchName } = useSession();
 
   const [inputValue, setInputValue] = useState<string>('');
   const [validationMessage, setValidationMessage] = useState("");
@@ -23,8 +24,8 @@ export function SignIn(): JSX.Element {
       return setValidationMessage(validation);
     }
 
-    setWitchName(inputValue.toUpperCase());
-    return navigate('/spells');
+    new Session().set(inputValue.toUpperCase())
+    return navigate('/spells', { replace: true });
   }
 
   return (
