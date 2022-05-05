@@ -8,7 +8,7 @@ import { SubmitButton } from "@components/SubmitButton";
 import { HeaderSide } from "@components/Header";
 import { SpellSchema, SpellTypes } from "@interfaces/spell";
 import { SpellContextProvider, useSpell } from "@store/Spell";
-import { fetchSpellDetails } from "@services/network/fetchSpellDetails";
+import { fetchSpellDetails } from "@services/network/spell/get";
 
 function SpellDetailsComponent(): JSX.Element {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function SpellDetailsComponent(): JSX.Element {
   function getSpellType(spellType: SpellTypes): SpellTypes {
     const spellTypes = ['support', 'attack', 'debuff', 'defensive', 'mobility', 'lost'];
     const commonSpellType = spellTypes.includes(spellType);
-    
+
     return commonSpellType ? spellType : 'lost';
   }
 
@@ -63,11 +63,13 @@ function SpellDetailsComponent(): JSX.Element {
             />
           </div>
 
-          <SubmitButton
-            label="Voltar"
-            onSubmit={redirectToPreviousPage}
-            tooltipMessage="Voltar para página de magias"
-          />
+          <div className="self-center mt-16">
+            <SubmitButton
+              label="Voltar"
+              onSubmit={redirectToPreviousPage}
+              tooltipMessage="Voltar para página de magias"
+            />
+          </div>
         </div>
       </div>
     </div>
