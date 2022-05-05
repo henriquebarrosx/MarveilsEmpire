@@ -1,15 +1,12 @@
-import { SpellSchema } from '@interfaces/spell';
-
 import { ListViewContent } from './Content';
 import { LoadingIndicator } from './LoadingIndicator';
 
 interface Props {
   isLoading: boolean;
   isVisible: boolean;
-  spells: SpellSchema[];
 }
 
-export function ListView({ spells, isVisible, isLoading }: Props): JSX.Element | null {
+export function ListView({ isVisible, isLoading }: Props): JSX.Element | null {
   if (isLoading) {
     return <LoadingIndicator />
   }
@@ -21,7 +18,7 @@ export function ListView({ spells, isVisible, isLoading }: Props): JSX.Element |
           Enciclopédia de magias
         </h1>
 
-        <ListViewContent spells={spells} />
+        <ListViewContent />
       </div>
     )
   }
