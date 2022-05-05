@@ -1,35 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { HeaderSide } from "@components/Header";
-import { SpellSchema } from '@interfaces/spell';
-import { fetchBySpells } from "@services/network/fetchSpells";
+import { SpellContextProvider, useSpell } from "@store/Spell";
 
 import { ListView } from "./ListView";
 import { SpellsNotFound } from "./SpellsNotFound";
+import { UpdateSpellModal } from "./UpdateSpellModal";
 import { FloatingActionButton } from "./FloatingActionButton";
 
-export function SpellList(): JSX.Element {
-  const [spells, setSpellsToList] = useState<SpellSchema[]>([]);
-  const [isFetchIndicatorVisible, shouldDisplayFetchIndicator] = useState(true);
-
-  async function getSpellList(): Promise<void> {
-    try {
-      shouldDisplayFetchIndicator(true);
-
-      const { data } = await fetchBySpells();
-      const spellList = data.spells;
-
-      setSpellsToList(spellList);
-    }
-
-    catch {
-      // TODO: Should treat possible errors
-    }
-
-    finally {
-      shouldDisplayFetchIndicator(false);
-    }
-  }
+function SpellListComponent(): JSX.Element {
+  const { isFetchIndicatorVisible, spells, getSpellList } = useSpell();
 
   function shouldDisplayNotFoundFeedback(): boolean {
     return !isFetchIndicatorVisible && !spells.length;
@@ -44,13 +24,19 @@ export function SpellList(): JSX.Element {
       <HeaderSide />
       
       <ListView
-        spells={spells}
         isLoading={isFetchIndicatorVisible}
         isVisible={!shouldDisplayNotFoundFeedback()}
       />
       
+      <UpdateSpellModal />
       <SpellsNotFound isVisible={shouldDisplayNotFoundFeedback()} />
       <FloatingActionButton />
     </div>
   )
 }
+
+export const SpellList = () => (
+  <SpellContextProvider>
+    <SpellListComponent />
+  </SpellContextProvider>
+)

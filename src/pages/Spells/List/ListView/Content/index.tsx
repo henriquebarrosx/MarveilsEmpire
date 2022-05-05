@@ -1,11 +1,9 @@
 import { Spell } from '../Spell';
-import { SpellSchema } from '@interfaces/spell';
+import { useSpell } from '@store/Spell';
 
-interface Props {
-  spells: SpellSchema[];
-}
+export function ListViewContent(): JSX.Element {
+  const { spells } = useSpell();
 
-export function ListViewContent({ spells }: Props): JSX.Element {
   return (
     <div className='flex flex-wrap justify-center'>
       {spells.map((spell) => <Spell {...spell} key={spell.id} />)}
