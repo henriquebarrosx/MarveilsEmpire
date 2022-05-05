@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 import { WitchName } from "./WitchName";
 
-import { useSession } from "@store/Session";
 import { PROJECT_NAME } from "@utils/common";
+import { Session } from "../../entities/session";
 import WitchHatImage from '@assets/images/witchHat.png'
 
 function HeaderSideComponent() {
   const navigate = useNavigate();
-  const { witchName } = useSession();
+  const witchName = new Session().get();
   
-  const isAuthenticated: boolean = !!witchName;
+  const isAuthenticated: boolean = new Session().getAuthenticatedState();
 
   function redirectToHomeScreen(): void {
     const redirectPath = isAuthenticated ? '/spells' : '/signIn';

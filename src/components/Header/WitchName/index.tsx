@@ -2,19 +2,18 @@ import { memo } from 'react';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
-import { useSession } from '@store/Session';
+import { Session } from '../../../entities/session';
 
 interface Props {
-  name: string;
   isVisible: boolean;
+  name: string | undefined;
 }
 
 function WitchNameComponent({name, isVisible}: Props) {
   const navigate = useNavigate();
-  const { setWitchName } = useSession();
   
   function signOut(): void {
-    setWitchName("");
+    new Session().clear();
     navigate('/signIn', { replace: true });
   }
 

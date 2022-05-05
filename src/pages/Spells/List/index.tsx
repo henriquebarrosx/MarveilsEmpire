@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+import { useAuthentication } from "@utils/useAuth";
 import { HeaderSide } from "@components/Header";
 import { SpellContextProvider, useSpell } from "@store/Spell";
 
@@ -10,6 +11,7 @@ import { RemoveSpellModal } from "./RemoveSpellModal";
 import { FloatingActionButton } from "./FloatingActionButton";
 
 function SpellListComponent(): JSX.Element {
+  useAuthentication();
   const { isFetchIndicatorVisible, spells, getSpellList } = useSpell();
 
   function shouldDisplayNotFoundFeedback(): boolean {

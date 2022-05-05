@@ -3,15 +3,17 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { LeftSide } from "./LeftSide";
 import { RightSide } from "./RightSide";
-import { SubmitButton } from "@components/SubmitButton";
 
+import { useAuthentication } from "@utils/useAuth";
 import { HeaderSide } from "@components/Header";
+import { SubmitButton } from "@components/SubmitButton";
 import { SpellSchema, SpellTypes } from "@interfaces/spell";
 import { SpellContextProvider, useSpell } from "@store/Spell";
 import { fetchSpellDetails } from "@services/network/spell/get";
 import { LoadingIndicator } from "@components/LoadingIndicator";
 
 function SpellDetailsComponent(): JSX.Element {
+  useAuthentication();
   const navigate = useNavigate();
   const { id: spellId }: any = useParams();
 
