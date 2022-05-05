@@ -1,12 +1,13 @@
 {
   "name": "marveils-empire",
-  "private": false,
+  "private": true,
   "version": "0.0.0",
-  "homepage": "https://henriquebarrosx.github.io/MarveilsEmpire/",
+  "homepage": "https://henriquebarrosx.github.io/MarveilsEmpire",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "yarn build && gh-pages -d build"
   },
   "dependencies": {
     "axios": "^0.27.2",
