@@ -45,6 +45,10 @@ export function UpdateSpellFormView(): JSX.Element {
       shouldDisplayUpdateSpellModal(false);
     }
 
+    catch {
+       // TODO: Should treat possible errors
+    }
+
     finally {
       shouldDisplaySubmissionFeedback(false);
     }
