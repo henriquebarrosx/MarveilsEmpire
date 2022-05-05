@@ -15,7 +15,7 @@ export function HeaderSide() {
   }
 
   return (
-    <div className="h-12 w-full flex justify-between bg-[#35353A] fixed items-center px-5">
+    <div className="z-30 h-12 w-full flex justify-between bg-[#35353A] fixed items-center px-5">
       <button className="flex items-center" onClick={redirectToHomeScreen}>
         <img src={WitchHatImage} alt="logo" loading="lazy" className="w-7 h-7" />
         <h1 className="text-white font-bold text-sm ml-4">Marvies Empire</h1>
