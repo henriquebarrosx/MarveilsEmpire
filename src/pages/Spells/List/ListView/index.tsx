@@ -1,4 +1,5 @@
-import { ListViewContent } from './Content';
+import { Spell } from './Spell';
+import { useSpell } from '@store/Spell';
 import { LoadingIndicator } from '@components/LoadingIndicator';
 
 interface Props {
@@ -7,6 +8,8 @@ interface Props {
 }
 
 export function ListView({ isVisible, isLoading }: Props): JSX.Element | null {
+  const { spells } = useSpell();
+
   if (isLoading) {
     return <LoadingIndicator isVisible />
   }
@@ -18,7 +21,9 @@ export function ListView({ isVisible, isLoading }: Props): JSX.Element | null {
           Enciclopédia de magias
         </h1>
 
-        <ListViewContent />
+        <div className='flex flex-wrap justify-center'>
+          {spells.map((spell) => <Spell {...spell} key={spell.id} />)}
+        </div>
       </div>
     )
   }

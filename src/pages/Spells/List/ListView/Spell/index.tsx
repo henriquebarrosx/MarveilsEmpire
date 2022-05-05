@@ -4,9 +4,9 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 import { useSpell } from '@store/Spell';
-import { Popover } from '@components/Popover';
 import { spellDescription } from '@utils/spell';
 import { SpellSchema } from '@interfaces/spell';
+import { IAction, Popover } from '@components/Popover';
 import { SpellTypeIconBox } from '@components/SpellTypeIconBox';
 import { useOutsideClickListener } from '@utils/outsideClickListener';
 
@@ -50,7 +50,7 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
     hidePopover();
   }
 
-  function getPopoverActions() {
+  function getPopoverActions(): IAction[] {
     return [
       {
         label: 'Atualizar',
