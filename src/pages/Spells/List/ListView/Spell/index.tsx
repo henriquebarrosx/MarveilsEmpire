@@ -15,7 +15,7 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
 
   const containerAreaRef = useRef(null);
   const { setSelectedSpell, shouldDisplayUpdateSpellModal } = useSpell();
-  
+
   useOutsideClickListener(containerAreaRef, hidePopover);
 
   const navigate = useNavigate();
@@ -50,6 +50,21 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
     hidePopover();
   }
 
+  function getPopoverActions() {
+    return [
+      {
+        label: 'Atualizar',
+        onClick: updateCurrentSpell,
+        toolTipMessage: 'Atualizar Magia'
+      },
+      {
+        label: 'Remover',
+        onClick: () => { },
+        toolTipMessage: 'Remover Magia',
+      },
+    ]
+  }
+
   return (
     <div ref={containerAreaRef} title="Visualizar detalhes da magia" className='relative flex w-[348px] px-3 h-[104px] mx-5 my-5 bg-[#242424] box-shadow-md shadow-[#6C63FF] rounded-md justify-between items-center cursor-pointer duration-200 ease-linear'>
       <div onClick={redirectToDetailsPage} className="flex w-[90%]">
@@ -67,7 +82,7 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
           </div>
         </div>
       </div>
-     
+
       <div className='flex h-16 items-end z-20'>
         <button onClick={displayPopover} className="z-10 absolute top-5 w-6 h-6 rounded-full hover:bg-[#6C63FF] flex items-center justify-center duration-200 ease-linear">
           <BsThreeDotsVertical size={18} className="text-white" />
@@ -80,10 +95,7 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
 
       <Popover
         isVisible={isPopoverDisplayed}
-        actions={[
-          { label: 'Atualizar', onClick: updateCurrentSpell, toolTipMessage: 'Atualizar Magia' },
-          { label: 'Remover', onClick: () => {}, toolTipMessage: 'Remover magia' },
-        ]}
+        actions={getPopoverActions()}
       />
     </div>
   )
