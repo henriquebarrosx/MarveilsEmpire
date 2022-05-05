@@ -35,7 +35,7 @@ function SpellComponent(spell: SpellSchema): JSX.Element {
 
   return (
     <div title="Visualizar detalhes da magia" className='relative flex w-[348px] px-3 h-[104px] mx-5 my-5 bg-[#242424] box-shadow-md shadow-[#6C63FF] rounded-md justify-between items-center cursor-pointer duration-200 ease-linear'>
-      <div onClick={redirectToDetailsPage} className="flex w-full">
+      <div onClick={redirectToDetailsPage} className="flex w-[90%]">
         <div className='flex items-center w-[90%]'>
           <SpellTypeIconBox type={type} />
 
