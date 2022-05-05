@@ -5,7 +5,7 @@ import { LeftSide } from "./LeftSide";
 import { RightSide } from "./RightSide";
 import { HeaderSide } from "@components/Header";
 import { SubmitButton } from "@components/SubmitButton";
-import { createSpell } from "@services/network/saveSpell";
+import { createSpell } from "@services/network/spell/create";
 import { SpellContextProvider, useSpell } from "@store/Spell";
 
 function SpellCreationComponent(): JSX.Element {
@@ -26,7 +26,7 @@ function SpellCreationComponent(): JSX.Element {
   async function createNewSpell(): Promise<void> {
     try {
       shouldDisplaySubmissionFeedback(true);
-      
+
       await createSpell({ name: spellName, type: selectedOption! });
       return navigate("/spells");
     }
@@ -51,12 +51,14 @@ function SpellCreationComponent(): JSX.Element {
             />
           </div>
 
-          <SubmitButton
-            disabled={isSubmitting}
-            onSubmit={createNewSpell}
-            label={getSubmitButtonLabel()}
-            tooltipMessage="Cadastrar magia"
-          />
+          <div className="self-center mt-16">
+            <SubmitButton
+              disabled={isSubmitting}
+              onSubmit={createNewSpell}
+              label={getSubmitButtonLabel()}
+              tooltipMessage="Cadastrar magia"
+            />
+          </div>
         </div>
       </div>
     </div>
