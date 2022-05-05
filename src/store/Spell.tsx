@@ -3,6 +3,7 @@ import { createContext, Dispatch, SetStateAction, useContext, useState } from "r
 import { WithChildren } from "@interfaces/common";
 import { SpellSchema, SpellTypes } from "@interfaces/spell";
 import { fetchBySpells } from "@services/network/spell/get";
+import { orderSpellsByAlphabeticOrder } from "@utils/alphabeticOrder";
 
 interface Schema {
   spells: SpellSchema[];
@@ -33,7 +34,7 @@ export function SpellContextProvider({ children }: WithChildren): JSX.Element {
       const { data } = await fetchBySpells();
       const spellList = data.spells;
 
-      setSpellsToList(spellList);
+      setSpellsToList(orderSpellsByAlphabeticOrder(spellList));
     }
 
     catch {
