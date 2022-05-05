@@ -11,6 +11,7 @@ interface Schema {
   getSpellList: () => Promise<void>;
   isUpdateSpellModalVisible: boolean;
   selectedOption: SpellTypes | undefined;
+  shouldDisplayFetchIndicator: Dispatch<SetStateAction<boolean>>;
   shouldDisplayUpdateSpellModal: Dispatch<SetStateAction<boolean>>;
   setSelectedSpell: Dispatch<SetStateAction<SpellSchema | undefined>>;
   setSelectedOption: Dispatch<SetStateAction<SpellTypes | undefined>>;
@@ -55,6 +56,7 @@ export function SpellContextProvider({ children }: WithChildren): JSX.Element {
         setSelectedOption,
         isFetchIndicatorVisible,
         isUpdateSpellModalVisible,
+        shouldDisplayFetchIndicator,
         shouldDisplayUpdateSpellModal,
       }}>
       {children}
