@@ -3,6 +3,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { LeftSide } from "./LeftSide";
 import { RightSide } from "./RightSide";
 import { useSpell } from "@store/Spell";
+import { SpellTypes } from "@interfaces/spell";
 import { SubmitButton } from "@components/SubmitButton";
 import { updateSpell } from "@services/network/spell/update";
 
@@ -48,13 +49,20 @@ export function UpdateSpellFormView(): JSX.Element {
     }
   }
 
+  function getSpellType(spellType: SpellTypes): SpellTypes {
+    const spellTypes = ['support', 'attack', 'debuff', 'defensive', 'mobility', 'lost'];
+    const commonSpellType = spellTypes.includes(spellType);
+
+    return commonSpellType ? spellType : 'lost';
+  }
+
   function cancelUpdatingSpell(): void {
     setSelectedSpell(undefined);
     shouldDisplayUpdateSpellModal(false);
   }
 
   useEffect(() => {
-    setSelectedOption(spell?.type);
+    setSelectedOption(getSpellType(spell?.type!));
   }, [spell?.type]);
 
   return (
