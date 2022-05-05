@@ -6,10 +6,4 @@ export interface SpellSchema {
   createdAt: string;
 }
 
-export type SpellTypes = 
-  'support' 
-  | 'attack' 
-  | 'debuff' 
-  | 'defensive' 
-  | 'mobility' 
-  | 'lost';
+export type SpellTypes = 'support' | 'attack' | 'debuff' | 'defensive' | 'mobility' | 'lost';

@@ -32,6 +32,10 @@ function SpellCreationComponent(): JSX.Element {
       return navigate("/spells");
     }
 
+    catch {
+      // TODO: Should treat possible errors
+    }
+
     finally {
       shouldDisplaySubmissionFeedback(false);
     }

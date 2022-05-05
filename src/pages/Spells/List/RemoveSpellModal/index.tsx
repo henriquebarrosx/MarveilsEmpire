@@ -37,6 +37,10 @@ export function RemoveSpellModal(): JSX.Element {
       shouldDisplayRemoveSpellModal(false);
     }
 
+    catch {
+      // TODO: Should treat possible errors
+    }
+
     finally {
       shouldDisplaySubmissionFeedback(false);
     }
