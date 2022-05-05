@@ -6,6 +6,7 @@ import { useSpell } from "@store/Spell";
 import { SpellTypes } from "@interfaces/spell";
 import { SubmitButton } from "@components/SubmitButton";
 import { updateSpell } from "@services/network/spell/update";
+import { LoadingIndicator } from "@components/LoadingIndicator";
 
 export function UpdateSpellFormView(): JSX.Element {
   const {
@@ -68,6 +69,8 @@ export function UpdateSpellFormView(): JSX.Element {
   return (
     <div className="flex justify-center items-center h-full mt-24 mb-24 md:mt-[10%] lg:mt-[150px] md:mb-0">
       <div className="flex flex-col md:px-14 md:py-14 px-8 py-8 bg-[#242424] box-shadow-lg md:max-w-[871px] w-[90%] sm:max-h-[unset] rounded-lg">
+        <LoadingIndicator isVisible={isSubmitting} />
+
         <div className="flex md:flex-row flex-col-reverse">
           <LeftSide />
 

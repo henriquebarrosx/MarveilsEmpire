@@ -1,5 +1,5 @@
 import { ListViewContent } from './Content';
-import { LoadingIndicator } from './LoadingIndicator';
+import { LoadingIndicator } from '@components/LoadingIndicator';
 
 interface Props {
   isLoading: boolean;
@@ -8,7 +8,7 @@ interface Props {
 
 export function ListView({ isVisible, isLoading }: Props): JSX.Element | null {
   if (isLoading) {
-    return <LoadingIndicator />
+    return <LoadingIndicator isVisible />
   }
 
   if (isVisible) {
