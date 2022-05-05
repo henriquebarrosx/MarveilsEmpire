@@ -6,6 +6,7 @@ import { SpellContextProvider, useSpell } from "@store/Spell";
 import { ListView } from "./ListView";
 import { SpellsNotFound } from "./SpellsNotFound";
 import { UpdateSpellModal } from "./UpdateSpellModal";
+import { RemoveSpellModal } from "./RemoveSpellModal";
 import { FloatingActionButton } from "./FloatingActionButton";
 
 function SpellListComponent(): JSX.Element {
@@ -29,6 +30,8 @@ function SpellListComponent(): JSX.Element {
       />
       
       <UpdateSpellModal />
+      <RemoveSpellModal />
+
       <SpellsNotFound isVisible={shouldDisplayNotFoundFeedback()} />
       <FloatingActionButton />
     </div>
