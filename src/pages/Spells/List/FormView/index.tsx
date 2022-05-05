@@ -29,7 +29,7 @@ export function UpdateSpellFormView(): JSX.Element {
     return isSubmitting ? "Atualizando..." : "Atualizar";
   }
 
-  async function createNewSpell(): Promise<void> {
+  async function updateCurrentSpell(): Promise<void> {
     try {
       shouldDisplaySubmissionFeedback(true);
 
@@ -88,7 +88,7 @@ export function UpdateSpellFormView(): JSX.Element {
           <SubmitButton
             size="small"
             disabled={isSubmitting}
-            onSubmit={createNewSpell}
+            onSubmit={updateCurrentSpell}
             label={getSubmitButtonLabel()}
             tooltipMessage="Atualizar Magia"
           />
