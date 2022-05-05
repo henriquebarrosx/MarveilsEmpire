@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
 import { WitchName } from "./WitchName";
+import { useSession } from "@store/Session";
 import WitchHatImage from '@assets/images/witchHat.png'
 
 export function HeaderSide() {
   const navigate = useNavigate();
-
-  const isAuthenticated = true;
-  const witchName = "Charlotte";
+  const { witchName } = useSession();
+  const isAuthenticated = !!witchName;
 
   function redirectToHomeScreen(): void {
     const redirectPath = isAuthenticated ? '/spells' : '/signIn';
