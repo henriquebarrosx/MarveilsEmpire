@@ -32,11 +32,8 @@
 
 <br>
 
-## 🔗 Páginas disponiveis
-- [Login](https://marveils-empire.vercel.app/signIn)                  → Única página disponivel se não estiver logato
-- [Enciclopédia de magias](https://marveils-empire.vercel.app/spells) →  Lista ordenada alfabeticamente, é possivel realizar ações apartir de cada item
-- [Detalhes de magias](https://marveils-empire.vercel.app/spells/f66023297c5a75d02fc98572c65faec1) →  Data de criação, Nome e Tipo de magia
-- [Cadastro de magias](https://marveils-empire.vercel.app/spells/new) →  Cadastra uma mágia com nome, tipo e data de criação
+## 🔗 Página Hospedada
+- [Visitar página](https://marveils-empire.vercel.app)
 
 <br>
 
