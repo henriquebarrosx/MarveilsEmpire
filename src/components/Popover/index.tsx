@@ -3,7 +3,7 @@ interface Props {
   actions: IAction[];
 }
 
-interface IAction {
+export interface IAction {
   label: string;
   onClick: () => void;
   toolTipMessage: string;
