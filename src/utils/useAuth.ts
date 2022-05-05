@@ -5,11 +5,11 @@ import { Session } from "../entities/session";
 
 export function useAuthentication() {
   const navigate = useNavigate();
-  const isAuthenticated = new Session().get();
+  const isAuthenticated = new Session().getAuthenticatedState();
 
   function handleAuthState(): void {
-    const path = !!isAuthenticated ? '/spells' : '/signIn';
-    navigate(path, { replace: true });
+    const pathname = isAuthenticated ? window.location.pathname : "/signIn";
+    navigate(pathname, { replace: true });
   }
 
   useEffect(() => {
